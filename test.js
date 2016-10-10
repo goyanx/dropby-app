@@ -19,7 +19,7 @@ app.use(bpar.json()); // for parsing application/json
 app.use(bpar.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(multer());//needed for console.log(req.body) to print json
 gm.config('secure',true)
-gm.config('console-key','AIzaSyDZ397vDwa1o-S8-uNHOmdSK0GOqU55yo0')
+gm.config('console-key','SOMEKEY')
 
 markers = [
     { 'location': '300 W Main St Lock Haven, PA' },
@@ -146,7 +146,7 @@ app.post('/loc', function (req, res) {
 });
 
 app.get('/gethotel',function(req,res) {
-  var url = "https://hacker235:pBo8BAC2Xu@distribution-xml.booking.com/json/getHotelAvailabilityV2?" +
+  var url = "https://distribution-xml.booking.com/json/getHotelAvailabilityV2?" +
   "output=room_policies,room_details,hotel_details&checkin=2016-10-09&checkout=2016-10-10&city_ids=-2419930&room1=A,A&rows=10" 
  // +   "&latitude=" + req.query.lat + "&longitude=" + req.query.lng + "&radius=" + req.query.rad; //&city_ids=-2437894
 
@@ -171,7 +171,7 @@ app.get('/gethotel',function(req,res) {
 });
 app.get('/gethotelReviews',function(req,res) {
   //console.log(req.query.hid);
-  var url = "https://hacker235:pBo8BAC2Xu@distribution-xml.booking.com/json/bookings.getBookingcomReviews?hotel_ids=" + req.query.hid;
+  var url = "https://distribution-xml.booking.com/json/bookings.getBookingcomReviews?hotel_ids=" + req.query.hid;
 
   console.log("gethotelReviews");
 
